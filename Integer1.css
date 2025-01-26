@@ -1,0 +1,194 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f4f4;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+header {
+    background: #007BFF;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+
+h1 {
+    font-size: 3.0em;
+    margin: 0;
+
+}
+
+h2 {
+    font-size: 1.5em;
+    margin: 0;
+    font-family: monospace;
+}
+
+h3 {
+    font-size: 1.0em;
+    margin: 0;
+    font-family: monospace;
+}
+
+h4 {
+    font-size: 0.7em;
+    margin: 0;
+    font-family: serif;
+}
+
+nav {
+    margin: 20px 0;
+}
+
+nav a {
+    color: #007BFF;
+    text-decoration: none;
+    margin: 0 15px;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+.simplifyPart {
+    background-color: rgb(255,229,229,0.5);
+    margin: 10px;
+    padding: 10px;
+    align: center;
+
+}
+
+.solutionPart {
+    background-color: rgb(255,255,204,0.5);
+    margin: 10px;
+    padding: 10px;
+    align: center;
+
+}
+
+.container1 {
+    max-width: 800px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9em;
+}
+
+.button {
+    background-color: rgb(255,204,102);
+    color: black;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    margin: 20px auto
+}
+
+.button:hover {
+    background-color: #718238;
+}
+
+.box {
+    background-color: rgb(204,255,153);
+    color: black;
+     text-align: center;
+    display: block;
+    justify-content: space-between;
+    width: 47%;
+    height: 100px auto;
+    margin: 10px auto;
+     border-width: 1px;
+    border-style: solid;
+    border-color: black;
+
+}
+
+.simplifyans{
+    background-color: rgb(255,200,200);
+    display: block;
+    justify-content: space-between;
+    width:70%;
+    height : 50px;
+
+}
+
+.eqninput {
+width: 40%;
+family-font: Courier New;
+}
+
+.eqninput2 {
+width: 40%
+}
+
+.separate{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.calculate{
+ display: flex;
+    justify-content: space-between;
+}
+
+.signsum {
+    background-color: rgb(204,255,255);
+    color: black;
+     text-align: center;
+    display: block;
+    justify-content: space-between;
+    width: 47%;
+    height: 100px auto;
+    margin: 10px auto;
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+
+}
+
+.bayarSituasi{
+text-decoration: underline;
+}
+
+.hutangSituasi{
+text-decoration: underline;
+}
+
+.finalans {
+    background-color: rgb(255,225,255);
+    color: black;
+    display: flex;
+    justify-content: center;
+    width: 40%;
+    height: 50px;
+    margin: 20px auto;
+    align-items: center;
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+
+}
+
+.iconHutang{
+            width: 25px;
+            height: 25px;
+            margin: 5px;
+            display: inline-block;
+            background-color: red;
+        }
+.iconBayar{
+            width: 25px;
+            height: 25px;
+            margin: 5px;
+            display: inline-block;
+            background-color: blue;
+        }

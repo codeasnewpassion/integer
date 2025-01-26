@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Integer</title>
+    <link rel="stylesheet" href="Integer1.css">
+
+</head>
+<body>
+
+    <h1 style="font-family: Dosis ExtraBold">SMART INTEGER</h1>
+    <p></p>
+
+<div class="simplifyPart" id="partSimplify">
+<div>
+    <picture>
+         <img src="./image/simplify.png" style="width:90%; align-items: centre;" >
+    </picture>
+
+</div>
+    <p></p>
+    <h2 class="explain">Masukkan persamaan di bawah untuk permudahkan persamaan.</h2>
+
+     <input type="text" id="equation" class="eqninput" placeholder="Masukkan persamaan integer di sini">
+    <button class="button" onclick="eliminateBrackets()">Permudahkan</button>
+    <div class="simplifyans">
+          <h2>Persamaan yang telah dipermudahkan: </h2>
+        <h3 id="result"></h3>
+    </div>
+    <button onclick="resetSimplify()">Padam</button>
+
+</div>
+
+<div class="solutionPart" id="partSolution">
+     <picture>
+         <img src="./image/bayarHutang.png" style="width:90%; align-items: center;" >
+    </picture>
+    <p></p>
+    <h2>Masukkan persamaan di bawah untuk diselesaikan menggunakan kaedah Hutang dan Bayar.</h2>
+    <h4>Pastikan masukkan persamaan yang telah dipermudahkan.</h4>
+
+    <input type="text" id="equation2" class="eqninput2" placeholder="Masukkan persamaan integer di sini">
+    <button class="button" onclick="separateTerms()">Mulakan</button>
+
+    <h2>1. Asingkan nombor positif (bayaran) dan nombor negatif (hutang) daripada suatu persamaan.</h2>
+
+    <div class="separate">
+    <div class="box" id="separate-positive">
+        <h2 style="text-decoration: underline;">Bayaran (Nombor Positif)</h2>
+        <p></p>
+        <h3 id="positiveBox"></h3>
+    </div>
+
+    <div class="box" id="separate-negative">
+        <h2 style="text-decoration: underline;">Hutang (Nombor Negatif)</h2>
+         <p></p>
+        <h3 id="negativeBox"></h3>
+    </div>
+
+    </div>
+    <h2>2. Hitung jumlah Bayaran dan Hutang yang telah diasingkan.</h2>
+    <button class="button" onclick="calculateSums(); makeIcons()">Hitung Jumlah</button>
+
+    <div class="calculate">
+    <div class="signsum">
+        <h2 style="text-decoration: underline;">Jumlah Bayaran: </h2>
+         <p></p>
+        <h3 id="positiveSum"></h3>
+         <p id="iconPositive"></p>
+    </div>
+
+     <div class="signsum">
+        <h2 style="text-decoration: underline;">Jumlah Hutang: </h2>
+          <p></p>
+         <h3 id="negativeSum"></h3>
+         <p id="iconNegative"></p>
+     </div>
+    </div>
+<p></p>
+    <h3>Berdasarkan jumlah di atas, bayangkan Ahmad meminjam duit (hutang) sebanyak RM <span class="hutangSituasi" id="situasiHutang"></span> daripada Ali. Pada hari berikutnya,
+     Ahmad membayar hutangnya sebanyak RM <span class="bayarSituasi" id="situasiBayar"></span>.</h3>
+<p></p>
+<h2>3. Untuk mendapat jawapan akhir, setiap ikon (daripada Bayaran dan Hutang) perlulah
+dihapuskan satu persatu. </h2>
+    <h4>Klik butang di bawah hapuskan ikon.</h4>
+
+    <button id="disappearButton" class="button" onclick="disappearIcon()">Tekan di sini!</button>
+<p></p>
+     <h2>4. Baki ikon yang tinggal menunjukkan jawapan akhir.</h2>
+    <button class="button" onclick="finalAnswer()">Selesaikan</button>
+    <div class="finalans">
+        <h2>Jawapan Akhir: <span id="finalResult"></span></h2>
+    </div>
+
+    <button onclick="resetSolution()">Padam</button>
+
+    </div>
+    <script>
+
+          function eliminateBrackets() {
+            let input = document.getElementById("equation").value;
+            input = input.replace(/(\d+)\+\(\+(\d+)\)/g, "$1+$2");
+            input = input.replace(/(\d+)\+\(-(\d+)\)/g, "$1-$2");
+            input = input.replace(/(\d+)-\(\+(\d+)\)/g, "$1-$2");
+            input = input.replace(/(\d+)-\(-(\d+)\)/g, "$1+$2");
+            input = input.replace(/(\d+)\+\(\+(\d+)\)/g, "$1+$2");
+            input = input.replace(/(\d+)\+\(-(\d+)\)/g, "$1-$2");
+            input = input.replace(/(\d+)-\(\+(\d+)\)/g, "$1-$2");
+            input = input.replace(/(\d+)-\(-(\d+)\)/g, "$1+$2");
+            input = input.replace(/(\d+)\+\(\+(\d+)\)/g, "$1+$2");
+            input = input.replace(/(\d+)\+\(-(\d+)\)/g, "$1-$2");
+            input = input.replace(/(\d+)-\(\+(\d+)\)/g, "$1-$2");
+            input = input.replace(/(\d+)-\(-(\d+)\)/g, "$1+$2");
+            document.getElementById("result").innerText = input;
+        }
+
+        function resetSimplify(){
+        document.getElementById("equation").value = "";
+        document.getElementById("result").innerText = "";
+        }
+
+        function separateTerms() {
+            const equation = document.getElementById('equation2').value;
+            const terms = equation.split(/(?=[+-])/);
+            const positiveBox = document.getElementById('positiveBox');
+            const negativeBox = document.getElementById('negativeBox');
+            positiveBox.innerHTML = '';
+            negativeBox.innerHTML = '';
+
+            terms.forEach(term => {
+                if (term.startsWith('+') || (!term.startsWith('-') && term.trim() !== '')) {
+                    positiveBox.innerHTML += `<div>${term}</div>`;
+                } else {
+                    negativeBox.innerHTML += `<div>${term}</div>`;
+                }
+            });
+        }
+
+        function calculateSums() {
+            const positiveTerms = document.getElementById('positiveBox').innerText.split('\n').filter(Boolean);
+            const negativeTerms = document.getElementById('negativeBox').innerText.split('\n').filter(Boolean);
+            const positiveSum = positiveTerms.reduce((sum, term) => sum + parseFloat(term), 0);
+            const negativeSum = negativeTerms.reduce((sum, term) => sum + parseFloat(term), 0);
+            document.getElementById('positiveSum').innerText = positiveSum;
+            document.getElementById('negativeSum').innerText = negativeSum;
+
+            document.getElementById('iconNegative').innerHTML = ``;
+                 for (let i = 0; i < Math.abs(negativeSum); i++) {
+                iconNegative.innerHTML += `<p class="iconHutang"></p>`;
+            }
+
+            document.getElementById('iconPositive').innerHTML = ``;
+                 for (let i = 0; i < Math.abs(positiveSum); i++) {
+                iconPositive.innerHTML += `<p class="iconBayar"></p>`;
+            }
+
+           const hapusSign = Math.abs(negativeSum);
+            document.getElementById('situasiHutang').innerText = hapusSign;
+            document.getElementById('situasiBayar').innerText = positiveSum;
+
+
+        }
+
+        function disappearIcon() {
+        const boxPositive = document.getElementsByClassName('iconBayar');
+        const boxNegative = document.getElementsByClassName('iconHutang');
+
+
+        let count = Math.min(boxPositive.length, boxNegative.length);
+
+        let index = 0;
+        const interval = setInterval(() => {
+            if (index < count) {
+                boxNegative[index].style.display = 'none';
+                boxPositive[index].style.display = 'none';
+                index++;
+            } else {
+                clearInterval(interval);
+            }
+        }, 1000);
+    }
+
+        function finalAnswer() {
+            const positiveSum = parseFloat(document.getElementById('positiveSum').innerText);
+            const negativeSum = parseFloat(document.getElementById('negativeSum').innerText);
+            const finalResult = positiveSum + negativeSum;
+            document.getElementById('finalResult').innerText = finalResult;
+        }
+
+        function resetSolution(){
+        document.getElementById("equation2").value = "";
+        document.getElementById("positiveBox").innerText = "";
+
+        document.getElementById("negativeBox").innerText = "";
+        document.getElementById("positiveSum").innerText = "";
+        document.getElementById("iconPositive").innerText = "";
+        document.getElementById("negativeSum").innerText = "";
+        document.getElementById("iconNegative").innerText = "";
+        document.getElementById("situasiBayar").innerText = "";
+        document.getElementById("situasiHutang").innerText = "";
+         document.getElementById("finalResult").innerText = "";
+        }
+    </script>
+
+</body>
+</html>
