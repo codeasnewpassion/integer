@@ -9,13 +9,14 @@
 </head>
 <body>
 
-    <h1 style="font-family: Dosis ExtraBold">SMART INTEGER</h1>
+    <h1 style="font-family: OCR A Std, monospace; font-weight: bold; text-align: center; background-color:
+    rgb(255,221,75,0.8) ;text-shadow: 2px 4px 4px rgba(221, 221, 221, 1.0);padding: 8px;">SMART INTEGER</h1>
     <p></p>
 
 <div class="simplifyPart" id="partSimplify">
 <div>
     <picture>
-         <img src="./image/simplify.png" style="width:90%; align-items: centre;" >
+         <img src="./image/simplify.png" style="width:90%; display: block;margin-left: auto; margin-right: auto;" >
     </picture>
 
 </div>
@@ -34,7 +35,7 @@
 
 <div class="solutionPart" id="partSolution">
      <picture>
-         <img src="./image/bayarHutang.png" style="width:90%; align-items: center;" >
+         <img src="./image/bayarHutang.png" style="width:90%; display: block;margin-left: auto; margin-right: auto;" >
     </picture>
     <p></p>
     <h2>Masukkan persamaan di bawah untuk diselesaikan menggunakan kaedah Hutang dan Bayar.</h2>
@@ -63,14 +64,14 @@
     <button class="button" onclick="calculateSums(); makeIcons()">Hitung Jumlah</button>
 
     <div class="calculate">
-    <div class="signsum">
+    <div id="sumPositive" class="signsum">
         <h2 style="text-decoration: underline;">Jumlah Bayaran: </h2>
          <p></p>
         <h3 id="positiveSum"></h3>
          <p id="iconPositive"></p>
     </div>
 
-     <div class="signsum">
+     <div id="sumNegative" class="signsum">
         <h2 style="text-decoration: underline;">Jumlah Hutang: </h2>
           <p></p>
          <h3 id="negativeSum"></h3>
