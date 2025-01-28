@@ -1,6 +1,8 @@
 body {
+     background-image: url('image/background2.jpg');
+    background-size: cover;
+    background-position: center;
     font-family: Arial, sans-serif;
-    background-color: #f8f4f4;
     color: #333;
     margin: 0;
     padding: 20px;
@@ -14,7 +16,7 @@ header {
 }
 
 h1 {
-    font-size: 3.0em;
+    font-size: 3.5em;
     margin: 0;
 
 }
@@ -52,7 +54,7 @@ nav a:hover {
 }
 
 .simplifyPart {
-    background-color: rgb(255,229,229,0.5);
+    background-color: rgb(255,229,229,0.9);
     margin: 10px;
     padding: 10px;
     align: center;
@@ -60,7 +62,7 @@ nav a:hover {
 }
 
 .solutionPart {
-    background-color: rgb(255,255,204,0.5);
+    background-color: rgb(255,255,204,0.9);
     margin: 10px;
     padding: 10px;
     align: center;
@@ -96,7 +98,22 @@ footer {
     background-color: #718238;
 }
 
-.box {
+#separate-positive {
+    background-color: rgb(204,255,153);
+    color: black;
+     text-align: center;
+    display: block;
+    justify-content: space-between;
+    width: 47%;
+    height: 100px auto;
+    margin: 10px auto;
+     border-width: 1px;
+    border-style: solid;
+    border-color: black;
+
+}
+
+#sumPositive {
     background-color: rgb(204,255,153);
     color: black;
      text-align: center;
@@ -140,7 +157,7 @@ width: 40%
     justify-content: space-between;
 }
 
-.signsum {
+#sumNegative {
     background-color: rgb(204,255,255);
     color: black;
      text-align: center;
@@ -152,7 +169,20 @@ width: 40%
     border-width: 1px;
     border-style: solid;
     border-color: black;
+}
 
+#separate-negative {
+    background-color: rgb(204,255,255);
+    color: black;
+     text-align: center;
+    display: block;
+    justify-content: space-between;
+    width: 47%;
+    height: 100px auto;
+    margin: 10px auto;
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
 }
 
 .bayarSituasi{
