@@ -1,7 +1,8 @@
 body {
-     background-image: url('image/background2.jpg');
+    background-image: url('image/background6.jpg');
     background-size: cover;
     background-position: center;
+    background-attachment: fixed;
     font-family: Arial, sans-serif;
     color: #333;
     margin: 0;
