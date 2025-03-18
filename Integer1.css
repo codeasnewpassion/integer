@@ -223,3 +223,13 @@ text-decoration: underline;
             display: inline-block;
             background-color: blue;
         }
+
+.hakMilik {
+            text-align: center;
+            border: none;
+            align-items: center;
+            border-radius: 3px;
+            padding: 10px;
+            margin: 20px auto;
+            background-color: rgb(238,195,176);
+        }
